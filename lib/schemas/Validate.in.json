@@ -1,0 +1,89 @@
+{
+    "type": "object",
+    "properties": {
+        "resourceGroupName": {
+            "required": true,
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 90,
+            "pattern": "^[-\\w\\._\\(\\)]+[^\\.]$"
+        },
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Resource validation request content.",
+            "properties": {
+                "location": {
+                    "description": "Expected location of the resource.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Resource name to verify.",
+                    "type": "string"
+                },
+                "properties": {
+                    "description": "Properties of the resource to validate.",
+                    "x-ms-client-flatten": true,
+                    "properties": {
+                        "capacity": {
+                            "description": "Target capacity of the App Service plan (number of VMs).",
+                            "format": "int32",
+                            "minimum": 1,
+                            "type": "integer"
+                        },
+                        "hostingEnvironment": {
+                            "description": "Name of App Service Environment where app or App Service plan should be created.",
+                            "type": "string"
+                        },
+                        "isSpot": {
+                            "description": "<code>true</code> if App Service plan is for Spot instances; otherwise, <code>false</code>.",
+                            "type": "boolean"
+                        },
+                        "isXenon": {
+                            "description": "<code>true</code> if App Service plan is running as a windows container",
+                            "type": "boolean"
+                        },
+                        "needLinuxWorkers": {
+                            "description": "<code>true</code> if App Service plan is for Linux workers; otherwise, <code>false</code>.",
+                            "type": "boolean"
+                        },
+                        "serverFarmId": {
+                            "description": "ARM resource ID of an App Service plan that would host the app.",
+                            "type": "string"
+                        },
+                        "skuName": {
+                            "description": "Name of the target SKU for the App Service plan.",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "type": {
+                    "description": "Resource type used for verification.",
+                    "enum": [
+                        "ServerFarm",
+                        "Site"
+                    ],
+                    "type": "string",
+                    "x-ms-enum": {
+                        "modelAsString": true,
+                        "name": "ValidateResourceTypes"
+                    }
+                }
+            },
+            "required": [
+                "name",
+                "type",
+                "location",
+                "properties"
+            ],
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

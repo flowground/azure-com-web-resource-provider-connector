@@ -1,0 +1,49 @@
+{
+    "type": "object",
+    "properties": {
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Resource name availability request content.",
+            "properties": {
+                "isFqdn": {
+                    "description": "Is fully qualified domain name.",
+                    "type": "boolean"
+                },
+                "name": {
+                    "description": "Resource name to verify.",
+                    "type": "string"
+                },
+                "type": {
+                    "description": "Resource type used for verification.",
+                    "enum": [
+                        "Site",
+                        "Slot",
+                        "HostingEnvironment",
+                        "PublishingUser",
+                        "Microsoft.Web/sites",
+                        "Microsoft.Web/sites/slots",
+                        "Microsoft.Web/hostingEnvironments",
+                        "Microsoft.Web/publishingUsers"
+                    ],
+                    "type": "string",
+                    "x-ms-enum": {
+                        "modelAsString": true,
+                        "name": "CheckNameResourceTypes"
+                    }
+                }
+            },
+            "required": [
+                "name",
+                "type"
+            ],
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

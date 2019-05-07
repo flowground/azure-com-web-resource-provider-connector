@@ -1,0 +1,338 @@
+{
+    "title": " API Client",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/azure.com/web-ResourceProvider/2018-02-01/swagger.json",
+    "envVars": {
+        "OAUTH_CLIENT_ID": {
+            "description": "OAuth Client ID"
+        },
+        "OAUTH_CLIENT_SECRET": {
+            "description": "OAuth Client Secret"
+        }
+    },
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://management.azure.com/",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "azure_auth": {
+                "label": "Azure Active Directory OAuth2 Flow",
+                "viewClass": "OAuthFieldView"
+            }
+        },
+        "oauth2": {
+            "client_id": "{{OAUTH_CLIENT_ID}}",
+            "client_secret": "{{OAUTH_CLIENT_SECRET}}",
+            "auth_uri": "https://login.microsoftonline.com/common/oauth2/authorize"
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "GetPublishingUser": {
+            "main": "./lib/actions/GetPublishingUser.js",
+            "title": "Gets publishing user",
+            "description": "Gets publishing user",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetPublishingUser.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "UpdatePublishingUser": {
+            "main": "./lib/actions/UpdatePublishingUser.js",
+            "title": "Updates publishing user",
+            "description": "Updates publishing user",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/UpdatePublishingUser.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ListSourceControls": {
+            "main": "./lib/actions/ListSourceControls.js",
+            "title": "Gets the source controls available for Azure websites.",
+            "description": "Gets the source controls available for Azure websites.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ListSourceControls.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetSourceControl": {
+            "main": "./lib/actions/GetSourceControl.js",
+            "title": "Gets source control token",
+            "description": "Gets source control token",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetSourceControl.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "UpdateSourceControl": {
+            "main": "./lib/actions/UpdateSourceControl.js",
+            "title": "Updates source control token",
+            "description": "Updates source control token",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/UpdateSourceControl.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ListBillingMeters": {
+            "main": "./lib/actions/ListBillingMeters.js",
+            "title": "Gets a list of meters for a given location.",
+            "description": "Gets a list of meters for a given location.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ListBillingMeters.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CheckNameAvailability": {
+            "main": "./lib/actions/CheckNameAvailability.js",
+            "title": "Check if a resource name is available.",
+            "description": "Check if a resource name is available.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CheckNameAvailability.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetSubscriptionDeploymentLocations": {
+            "main": "./lib/actions/GetSubscriptionDeploymentLocations.js",
+            "title": "Gets list of available geo regions plus ministamps",
+            "description": "Gets list of available geo regions plus ministamps",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetSubscriptionDeploymentLocations.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ListGeoRegions": {
+            "main": "./lib/actions/ListGeoRegions.js",
+            "title": "Get a list of available geographical regions.",
+            "description": "Get a list of available geographical regions.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ListGeoRegions.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ListSiteIdentifiersAssignedToHostName": {
+            "main": "./lib/actions/ListSiteIdentifiersAssignedToHostName.js",
+            "title": "List all apps that are assigned to a hostname.",
+            "description": "List all apps that are assigned to a hostname.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ListSiteIdentifiersAssignedToHostName.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ListPremierAddOnOffers": {
+            "main": "./lib/actions/ListPremierAddOnOffers.js",
+            "title": "List all premier add-on offers.",
+            "description": "List all premier add-on offers.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ListPremierAddOnOffers.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ListSkus": {
+            "main": "./lib/actions/ListSkus.js",
+            "title": "List all SKUs.",
+            "description": "List all SKUs.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ListSkus.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "VerifyHostingEnvironmentVnet": {
+            "main": "./lib/actions/VerifyHostingEnvironmentVnet.js",
+            "title": "Verifies if this VNET is compatible with an App Service Environment by analyzing the Network Security Group rules.",
+            "description": "Verifies if this VNET is compatible with an App Service Environment by analyzing the Network Security Group rules.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/VerifyHostingEnvironmentVnet.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Move": {
+            "main": "./lib/actions/Move.js",
+            "title": "Move resources between resource groups.",
+            "description": "Move resources between resource groups.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Move.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Validate": {
+            "main": "./lib/actions/Validate.js",
+            "title": "Validate if a resource can be created.",
+            "description": "Validate if a resource can be created.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Validate.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ValidateContainerSettings": {
+            "main": "./lib/actions/ValidateContainerSettings.js",
+            "title": "Validate if the container settings are correct.",
+            "description": "Validate if the container settings are correct.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ValidateContainerSettings.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ValidateMove": {
+            "main": "./lib/actions/ValidateMove.js",
+            "title": "Validate whether a resource can be moved.",
+            "description": "Validate whether a resource can be moved.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ValidateMove.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

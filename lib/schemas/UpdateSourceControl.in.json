@@ -1,0 +1,70 @@
+{
+    "type": "object",
+    "properties": {
+        "sourceControlType": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "allOf": [
+                {
+                    "description": "Azure proxy only resource. This resource is not tracked by Azure Resource Manager.",
+                    "properties": {
+                        "id": {
+                            "description": "Resource Id.",
+                            "readOnly": true,
+                            "type": "string"
+                        },
+                        "kind": {
+                            "description": "Kind of resource.",
+                            "type": "string"
+                        },
+                        "name": {
+                            "description": "Resource Name.",
+                            "readOnly": true,
+                            "type": "string"
+                        },
+                        "type": {
+                            "description": "Resource type.",
+                            "readOnly": true,
+                            "type": "string"
+                        }
+                    },
+                    "x-ms-azure-resource": true,
+                    "type": "object"
+                }
+            ],
+            "description": "The source control OAuth token.",
+            "properties": {
+                "properties": {
+                    "description": "SourceControl resource specific properties",
+                    "properties": {
+                        "expirationTime": {
+                            "description": "OAuth token expiration.",
+                            "format": "date-time",
+                            "type": "string"
+                        },
+                        "refreshToken": {
+                            "description": "OAuth refresh token.",
+                            "type": "string"
+                        },
+                        "token": {
+                            "description": "OAuth access token.",
+                            "type": "string"
+                        },
+                        "tokenSecret": {
+                            "description": "OAuth access token secret.",
+                            "type": "string"
+                        }
+                    },
+                    "x-ms-client-flatten": true
+                }
+            },
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,75 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "allOf": [
+                {
+                    "description": "Azure proxy only resource. This resource is not tracked by Azure Resource Manager.",
+                    "properties": {
+                        "id": {
+                            "description": "Resource Id.",
+                            "readOnly": true,
+                            "type": "string"
+                        },
+                        "kind": {
+                            "description": "Kind of resource.",
+                            "type": "string"
+                        },
+                        "name": {
+                            "description": "Resource Name.",
+                            "readOnly": true,
+                            "type": "string"
+                        },
+                        "type": {
+                            "description": "Resource type.",
+                            "readOnly": true,
+                            "type": "string"
+                        }
+                    },
+                    "x-ms-azure-resource": true,
+                    "type": "object"
+                }
+            ],
+            "description": "User credentials used for publishing activity.",
+            "properties": {
+                "properties": {
+                    "description": "User resource specific properties",
+                    "properties": {
+                        "publishingPassword": {
+                            "description": "Password used for publishing.",
+                            "format": "password",
+                            "type": "string"
+                        },
+                        "publishingPasswordHash": {
+                            "description": "Password hash used for publishing.",
+                            "format": "password",
+                            "type": "string"
+                        },
+                        "publishingPasswordHashSalt": {
+                            "description": "Password hash salt used for publishing.",
+                            "format": "password",
+                            "type": "string"
+                        },
+                        "publishingUserName": {
+                            "description": "Username used for publishing.",
+                            "type": "string"
+                        },
+                        "scmUri": {
+                            "description": "Url of SCM site.",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "publishingUserName"
+                    ],
+                    "x-ms-client-flatten": true
+                }
+            },
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

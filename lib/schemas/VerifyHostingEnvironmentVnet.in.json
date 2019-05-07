@@ -1,0 +1,65 @@
+{
+    "type": "object",
+    "properties": {
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "allOf": [
+                {
+                    "description": "Azure proxy only resource. This resource is not tracked by Azure Resource Manager.",
+                    "properties": {
+                        "id": {
+                            "description": "Resource Id.",
+                            "readOnly": true,
+                            "type": "string"
+                        },
+                        "kind": {
+                            "description": "Kind of resource.",
+                            "type": "string"
+                        },
+                        "name": {
+                            "description": "Resource Name.",
+                            "readOnly": true,
+                            "type": "string"
+                        },
+                        "type": {
+                            "description": "Resource type.",
+                            "readOnly": true,
+                            "type": "string"
+                        }
+                    },
+                    "x-ms-azure-resource": true,
+                    "type": "object"
+                }
+            ],
+            "description": "The required set of inputs to validate a VNET",
+            "properties": {
+                "properties": {
+                    "description": "VnetParameters resource specific properties",
+                    "properties": {
+                        "vnetName": {
+                            "description": "The name of the VNET to be validated",
+                            "type": "string"
+                        },
+                        "vnetResourceGroup": {
+                            "description": "The Resource Group of the VNET to be validated",
+                            "type": "string"
+                        },
+                        "vnetSubnetName": {
+                            "description": "The subnet name to be validated",
+                            "type": "string"
+                        }
+                    },
+                    "x-ms-client-flatten": true
+                }
+            },
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

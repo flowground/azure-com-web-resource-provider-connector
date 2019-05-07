@@ -1,0 +1,37 @@
+{
+    "type": "object",
+    "properties": {
+        "sku": {
+            "type": "string",
+            "enum": [
+                "Free",
+                "Shared",
+                "Basic",
+                "Standard",
+                "Premium",
+                "Dynamic",
+                "Isolated",
+                "PremiumV2",
+                "ElasticPremium",
+                "ElasticIsolated"
+            ]
+        },
+        "linuxWorkersEnabled": {
+            "type": "boolean"
+        },
+        "xenonWorkersEnabled": {
+            "type": "boolean"
+        },
+        "linuxDynamicWorkersEnabled": {
+            "type": "boolean"
+        },
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

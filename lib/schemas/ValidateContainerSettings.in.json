@@ -1,0 +1,50 @@
+{
+    "type": "object",
+    "properties": {
+        "resourceGroupName": {
+            "required": true,
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 90,
+            "pattern": "^[-\\w\\._\\(\\)]+[^\\.]$"
+        },
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Container settings validation request context",
+            "properties": {
+                "baseUrl": {
+                    "description": "Base URL of the container registry",
+                    "type": "string"
+                },
+                "password": {
+                    "description": "Password for to access the container registry",
+                    "type": "string"
+                },
+                "platform": {
+                    "description": "Platform (windows or linux)",
+                    "type": "string"
+                },
+                "repository": {
+                    "description": "Repository name (image name)",
+                    "type": "string"
+                },
+                "tag": {
+                    "description": "Image tag",
+                    "type": "string"
+                },
+                "username": {
+                    "description": "Username for to access the container registry",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

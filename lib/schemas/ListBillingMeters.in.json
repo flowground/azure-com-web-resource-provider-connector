@@ -1,0 +1,19 @@
+{
+    "type": "object",
+    "properties": {
+        "billingLocation": {
+            "type": "string"
+        },
+        "osType": {
+            "type": "string"
+        },
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}
